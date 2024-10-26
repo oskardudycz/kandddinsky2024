@@ -10,8 +10,8 @@ namespace KanDDDinsky.Application.Books;
 public class BooksService(
     IBooksRepository repository,
     IAuthorProvider authorProvider,
-    IPublisherProvider publisherProvider)
-    : IBooksService
+    IPublisherProvider publisherProvider
+ ): IBooksService
 {
     public async Task CreateDraft(CreateDraftCommand command, CancellationToken ct)
     {

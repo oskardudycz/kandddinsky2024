@@ -26,7 +26,7 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "7.0.x"
+          dotnet-version: "8.0.x"
 
       - name: Restore NuGet packages
         run: dotnet restore
@@ -35,12 +35,12 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Start containers
-        run: docker-compose -f "docker-compose.yml" up -d
+        run: docker compose -f "docker-compose.yml" up -d
 
       - name: Run tests
         run: dotnet test --configuration Release --no-build --filter Category!=SkipCI
         
       - name: Stop containers
         if: always()
-        run: docker-compose -f "docker-compose.yml" down
+        run: docker compose -f "docker-compose.yml" down
 
