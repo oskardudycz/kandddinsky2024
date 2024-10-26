@@ -1,4 +1,4 @@
-# Slim your aggregates with an Event-Driven approach workshop at KanDDDinsky 2024
+# "Slim your aggregates with an Event-Driven approach" workshop at KanDDDinsky 2024
 
 ![KanDDDinsky logo](https://kandddinsky.de/img/design/logo_light.svg)
 
@@ -26,7 +26,7 @@ Let's ask our friend! Let's go to https://chatgpt.com/ and type:
 
 > Could you give me a real-world example of the complex DDD aggregate?
 > 
-> Describe the business rules and invariants. It should have at least ten properties, several business rules and invariants showing business logic.
+> Describe the business rules and invariants. It should have at least ten public and some private properties and several business rules and invariants showing business logic.
 > 
 > It should have a list of nested data and a few entities or value objects with logic.
 > 
@@ -36,12 +36,14 @@ Let's ask our friend! Let's go to https://chatgpt.com/ and type:
 > 
 > Describe aggregate flow, business rules first and invariants before implementation.
 > 
-> Don't list or describe properties; just express them in code. Provide an example implementation using C# 11.
+> Don't list or describe properties; just express them in code.
 > 
 > Start with the main aggregate implementation, then put the rest of the entities' definitions.
 > 
 > Write the whole code, including business logic and invariant checks. Provide aggregate and entities as separate code snippets.
 > 
 > Remember that entities should also be broken into dedicated snippets. Business logic should be more complex than state assignments and basic ifs representing the fuzziness of a real project's outcome.
+> 
+>  Provide an example implementation in C# 11.
 
 Now, go to your LinkedIn profile and add the Prompt Engineering skill!
