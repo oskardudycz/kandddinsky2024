@@ -6,10 +6,12 @@ on:
     branches: [main]
     paths:
       - "java/**"
+      - ".github/workflows/build.java.yml"
   # run it during pull request
   pull_request:
     paths:
       - "java/**"
+      - ".github/workflows/build.java.yml"
 
 defaults:
   run:
