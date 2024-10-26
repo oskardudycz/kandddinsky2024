@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <RootNamespace>KanDDDinsky.Api</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\KanDDDinsky.Application\KanDDDinsky.Application.csproj" />
+      <ProjectReference Include="..\KanDDDinsky.Infrastructure\KanDDDinsky.Infrastructure.csproj" />
+    </ItemGroup>
+    
+</Project>

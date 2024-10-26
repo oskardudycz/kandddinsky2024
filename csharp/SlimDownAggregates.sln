@@ -5,17 +5,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Original", "Original", "{8E
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishingHouse.Domain", "Original\PublishingHouse.Domain\PublishingHouse.Domain.csproj", "{7DF6037A-72E1-4BAF-A70D-F2A1FD6BC1B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanDDDinsky.Domain", "Original\KanDDDinsky.Domain\KanDDDinsky.Domain.csproj", "{7DF6037A-72E1-4BAF-A70D-F2A1FD6BC1B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishingHouse.Api", "Original\PublishingHouse.Api\PublishingHouse.Api.csproj", "{742D59B3-C804-4392-9FDD-45702A7806EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanDDDinsky.Api", "Original\KanDDDinsky.Api\KanDDDinsky.Api.csproj", "{742D59B3-C804-4392-9FDD-45702A7806EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishingHouse.Api.Tests", "Original\PublishingHouse.Api.Tests\PublishingHouse.Api.Tests.csproj", "{52F49C59-A1B4-4D8A-B36E-5F34690E7473}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanDDDinsky.Api.Tests", "Original\KanDDDinsky.Api.Tests\KanDDDinsky.Api.Tests.csproj", "{52F49C59-A1B4-4D8A-B36E-5F34690E7473}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishingHouse.Application", "Original\PublishingHouse.Application\PublishingHouse.Application.csproj", "{69040C7A-028E-4FF5-87A1-D8ABB1E29CA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanDDDinsky.Application", "Original\KanDDDinsky.Application\KanDDDinsky.Application.csproj", "{69040C7A-028E-4FF5-87A1-D8ABB1E29CA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishingHouse.Infrastructure", "Original\PublishingHouse.Infrastructure\PublishingHouse.Infrastructure.csproj", "{999E1D8C-A504-4C6C-BD8F-65CB5D9FD5D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanDDDinsky.Infrastructure", "Original\KanDDDinsky.Infrastructure\KanDDDinsky.Infrastructure.csproj", "{999E1D8C-A504-4C6C-BD8F-65CB5D9FD5D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishingHouse.Persistence", "Original\PublishingHouse.Persistence\PublishingHouse.Persistence.csproj", "{F089FC51-1ACF-4D0B-98AB-2A415CB403C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanDDDinsky.Persistence", "Original\KanDDDinsky.Persistence\KanDDDinsky.Persistence.csproj", "{F089FC51-1ACF-4D0B-98AB-2A415CB403C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
