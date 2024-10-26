@@ -23,7 +23,7 @@ jobs:
     strategy:
       # define the test matrix
       matrix:
-        java-version: [17, 18]
+        java-version: [22]
 
     steps:
       - name: Check Out Repo
@@ -35,12 +35,12 @@ jobs:
           java-version: ${{ matrix.java-version }}
           distribution: "adopt"
           cache: gradle
+          
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
 
-      - uses: gradle/gradle-build-action@v2
-        with:
-          arguments: build
-          gradle-version: wrapper
-          build-root-directory: java
+      - name: Build with Gradle
+        run: ./gradlew build
 
       - name: Archive test report
         uses: actions/upload-artifact@v2
