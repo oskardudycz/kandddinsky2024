@@ -1,3 +1,6 @@
+[<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="20px" />](https://www.linkedin.com/in/oskardudycz/) [![Subscribe](https://img.shields.io/badge/%F0%9F%9A%80-subscribe!-important)](https://www.architecture-weekly.com/?utm_source=github_architecture_weekly) [![Github Sponsors](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&link=https://github.com/sponsors/oskardudycz/)](https://github.com/sponsors/oskardudycz/) [![blog](https://img.shields.io/badge/blog-event--driven.io-brightgreen)](https://event-driven.io/?utm_source=architecture_weekly) 
+
+
 # "Slim your aggregates with an Event-Driven approach" workshop at KanDDDinsky 2024
 
 ![KanDDDinsky logo](https://kandddinsky.de/img/design/logo_light.svg)
@@ -399,16 +402,16 @@ Create the new module inside the Domain folder in your selected language:
 
 ## Additional Materials
 
+### Repository with solutions of a similar aggregate
+
+Repository with potential solution to the Book Aggregate: [Slim Down Your Aggregate](https://github.com/oskardudycz/slim-down-your-aggregate)
+
 ### Slimming Down
 - [How to effectively compose your business logic](https://event-driven.io/en/how_to_effectively_compose_your_business_logic)
 - [Slim your aggregates with Event Sourcing!](https://event-driven.io/en/slim_your_entities_with_event_sourcing/)
 - [How events can help in making the state-based approach efficient](https://event-driven.io/en/how_events_can_help_on_making_state_based_approach_efficient)
 - [Oskar Dudycz - My journey from Aggregates to Functional Composition](https://event-driven.io/pl/my_journey_from_aggregates/)
 - [What onion has to do with Clean Code?](https://event-driven.io/pl/onion_clean_code/)
-
-### Repository with solutions
-
-Repository with potential solution to the Book Aggregate: [Slim Down Your Aggregate](https://github.com/oskardudycz/slim-down-your-aggregate)
 
 ### Aggregate
 
