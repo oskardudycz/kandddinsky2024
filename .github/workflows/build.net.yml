@@ -6,10 +6,12 @@ on:
     branches: [ main ]
     paths:
       - "csharp/**"
+      - ".github/workflows/build.net.yml"
   # run it during pull request
   pull_request:
     paths:
       - "csharp/**"
+      - ".github/workflows/build.net.yml"
 
 defaults:
   run:

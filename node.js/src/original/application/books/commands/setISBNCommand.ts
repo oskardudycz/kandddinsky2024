@@ -1,5 +1,5 @@
 //import { BookId } from '#original';
-import { ISBN } from 'src/slimmed/domain/books/entities';
+import { ISBN } from '../../../domain/books/entities';
 import { BookId } from '../../../domain/books/entities';
 import { Command } from '../../../infrastructure/commands';
 

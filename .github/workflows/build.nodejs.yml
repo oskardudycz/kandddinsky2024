@@ -6,10 +6,12 @@ on:
     branches: [ main ]
     paths:
       - "node.js/**"
+      - ".github/workflows/build.nodejs.yml"
   # run it during pull request
   pull_request:
     paths:
       - "node.js/**"
+      - ".github/workflows/build.nodejs.yml"
 
 defaults:
   run:
