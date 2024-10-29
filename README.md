@@ -8,15 +8,15 @@ During the session, I'll show you how an Event-driven approach and a bit of func
 
 All of that will be as live refactoring that starts from a typical, bloated implementation and ends with code focused on behaviour and simplicity.
 
-# The what?
+## The what?
 
 Start by thinking about what Aggregate is actually about. How would you define it? What's the goal of using it?
 
-# The how?
+## The how?
 
 You choose! Which language should we code with: C#, Java, or TypeScript?
 
-# The code
+## The code
 
 To start our workshop, we need to find an implementation that looks valid at first glance but falls into the common mistakes of Aggregate Design. Where can we find it? 
 
@@ -54,18 +54,18 @@ Let's ask our friend! Let's go to https://chatgpt.com/ and type:
 
 Now, go to your LinkedIn profile and add the Prompt Engineering skill and DDD practitioner title!
 
-### The Output
+## The Output
 
 TBD
 
-### Paste it in your code
+## Paste it in your code
 
 Create the new module inside the Domain folder in your selected language:
 - [C#](./csharp/Original/KanDDDinsky.Domain/),
 - [Java](./java/src/main/java/io/eventdriven/slimdownaggregates/original/domain/),
 - [TypeScript](./node.js/src/original/domain/).
 
-### Prerequisitions
+## Prerequisitions
 
 1. Clone this repository.
 2. Install .NET 8 - https://dotnet.microsoft.com/en-us/download/dotnet/7.0.
