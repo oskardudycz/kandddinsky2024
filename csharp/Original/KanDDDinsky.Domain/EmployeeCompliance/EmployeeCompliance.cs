@@ -8,7 +8,7 @@ public class EmployeeCompliance
 {
     private List<CertificationRecord> Certifications { get; private set; }
     private ComplianceStatus Status { get; private set; }
-    private bool IsEligibleForTaskAssignment { get; private set; }
+    private bool IsEligibleForTaskAssignment => Status == ComplianceStatus.Compliant;
     private int MissedCompliances { get; set; }
 
     public EmployeeCompliance(EmployeeId employeeId)
@@ -25,6 +25,7 @@ public class EmployeeCompliance
         {
             throw new InvalidOperationException("Certification already exists.");
         }
+
         Certifications.Add(new CertificationRecord(certification, dateIssued));
         UpdateStatus();
     }
@@ -40,6 +41,15 @@ public class EmployeeCompliance
         // UpdateStatus();
     }
 
+    public List<ComplianceEvent> pendingEvents { get; } = new List<object>();
+
+    public List<object> dequeuePendingEvents()
+    {
+        var result = pendingEvents.ToList();
+        pendingEvents.Clear();
+        return result;
+    }
+
     public void CompleteComplianceTraining(ComplianceTraining training)
     {
         if (!training.IsMandatory || Status == ComplianceStatus.Compliant)
@@ -49,7 +59,13 @@ public class EmployeeCompliance
         if (complianceMet)
         {
             // Status = ComplianceStatus.Compliant;
-            PublishEvent(new ComplianceMetEvent(EmployeeId));
+            PublishEvent(
+                new ComplianceMetEvent(
+                    EmployeeId,
+                    ComplianceStatus.Compliant,
+                    DateTime.UtcNow
+                )
+            );
         }
         else
         {
@@ -57,7 +73,13 @@ public class EmployeeCompliance
             if (MissedCompliances > 3)
             {
                 // Status = ComplianceStatus.NonCompliant;
-                PublishEvent(new ComplianceBreachEvent(EmployeeId));
+                PublishEvent(
+                    new ComplianceBreachEvent(
+                        EmployeeId,
+                        ComplianceStatus.NonCompliant,
+                        DateTime.UtcNow
+                    )
+                );
             }
         }
 
@@ -71,6 +93,7 @@ public class EmployeeCompliance
         {
             throw new InvalidOperationException("Employee is not eligible for task assignment.");
         }
+
         IsEligibleForTaskAssignment = false;
     }
 
@@ -88,6 +111,7 @@ public class EmployeeCompliance
         {
             throw new InvalidOperationException("Certification not found.");
         }
+
         certificationRecord.MarkExpired();
         UpdateStatus();
     }
@@ -96,29 +120,33 @@ public class EmployeeCompliance
     {
         if (Certifications.Any(c => c.IsExpired))
         {
-            Status = ComplianceStatus.NonCompliant;
+            // Status = ComplianceStatus.NonCompliant;
         }
         else if (Certifications.All(c => c.IsCurrent()))
         {
-            Status = ComplianceStatus.Compliant;
-            IsEligibleForTaskAssignment = true;
+            // Status = ComplianceStatus.Compliant;
+            // IsEligibleForTaskAssignment = true;
         }
         else
         {
-            Status = ComplianceStatus.InProgress;
-            IsEligibleForTaskAssignment = false;
+            // Status = ComplianceStatus.InProgress;
+            // IsEligibleForTaskAssignment = false;
         }
 
-        PublishEvent(Status == ComplianceStatus.Compliant ? new ComplianceMetEvent(EmployeeId) : new CompliancePendingEvent(EmployeeId));
+        PublishEvent(Status == ComplianceStatus.Compliant
+            ? new ComplianceMetEvent(EmployeeId)
+            : new CompliancePendingEvent(EmployeeId));
     }
 
-    private void UpdateTaskEligibility()
-    {
-        IsEligibleForTaskAssignment = Status == ComplianceStatus.Compliant;// && LastStatusUpdate > DateTime.UtcNow.AddMonths(-6);
-    }
+    // private void UpdateTaskEligibility()
+    // {
+    //     IsEligibleForTaskAssignment =
+    //         Status == ComplianceStatus.Compliant; // && LastStatusUpdate > DateTime.UtcNow.AddMonths(-6);
+    // }
 
     private void PublishEvent(object @event)
     {
+        pendingEvents.Add(@event);
         // Assume some event dispatcher is available for publishing domain events
     }
 }
