@@ -6,20 +6,16 @@ using System.Linq;
 
 public class EmployeeCompliance
 {
-    public EmployeeId EmployeeId { get; private set; }
-    public List<CertificationRecord> Certifications { get; private set; }
-    public ComplianceStatus Status { get; private set; }
-    public bool IsEligibleForTaskAssignment { get; private set; }
-    private DateTime LastStatusUpdate { get; set; }
+    private List<CertificationRecord> Certifications { get; private set; }
+    private ComplianceStatus Status { get; private set; }
+    private bool IsEligibleForTaskAssignment { get; private set; }
     private int MissedCompliances { get; set; }
 
     public EmployeeCompliance(EmployeeId employeeId)
     {
-        EmployeeId = employeeId;
         Certifications = new List<CertificationRecord>();
         Status = ComplianceStatus.InProgress;
         IsEligibleForTaskAssignment = false;
-        LastStatusUpdate = DateTime.UtcNow;
         MissedCompliances = 0;
     }
 
@@ -40,21 +36,19 @@ public class EmployeeCompliance
         {
             throw new InvalidOperationException("Certification not found.");
         }
-        certificationRecord.Renew(renewalDate);
-        UpdateStatus();
+        // certificationRecord.Renew(renewalDate);
+        // UpdateStatus();
     }
 
     public void CompleteComplianceTraining(ComplianceTraining training)
     {
         if (!training.IsMandatory || Status == ComplianceStatus.Compliant)
-        {
             return;
-        }
 
         var complianceMet = Certifications.All(c => c.IsCurrent());
         if (complianceMet)
         {
-            Status = ComplianceStatus.Compliant;
+            // Status = ComplianceStatus.Compliant;
             PublishEvent(new ComplianceMetEvent(EmployeeId));
         }
         else
@@ -62,13 +56,13 @@ public class EmployeeCompliance
             MissedCompliances++;
             if (MissedCompliances > 3)
             {
-                Status = ComplianceStatus.NonCompliant;
+                // Status = ComplianceStatus.NonCompliant;
                 PublishEvent(new ComplianceBreachEvent(EmployeeId));
             }
         }
 
-        UpdateTaskEligibility();
-        LastStatusUpdate = DateTime.UtcNow;
+        // UpdateTaskEligibility();
+        // LastStatusUpdate = DateTime.UtcNow;
     }
 
     public void HandleTaskAssignmentRequest()
@@ -85,7 +79,6 @@ public class EmployeeCompliance
         var compliant = Certifications.All(c => c.IsCurrent());
         Status = compliant ? ComplianceStatus.Compliant : ComplianceStatus.NonCompliant;
         PublishEvent(compliant ? new ComplianceMetEvent(EmployeeId) : new ComplianceBreachEvent(EmployeeId));
-        LastStatusUpdate = DateTime.UtcNow;
     }
 
     public void ExpireCertification(CertificationId certificationId)
@@ -121,7 +114,7 @@ public class EmployeeCompliance
 
     private void UpdateTaskEligibility()
     {
-        IsEligibleForTaskAssignment = Status == ComplianceStatus.Compliant && LastStatusUpdate > DateTime.UtcNow.AddMonths(-6);
+        IsEligibleForTaskAssignment = Status == ComplianceStatus.Compliant;// && LastStatusUpdate > DateTime.UtcNow.AddMonths(-6);
     }
 
     private void PublishEvent(object @event)
