@@ -393,9 +393,14 @@ Create the new module inside the Domain folder in your selected language:
 5. Run `npm run build` to verify that code is compiling.
 6. Run `npm run test` to verify if all is working.
 
+## Follow the steps shown during the webinar
+
+[![](https://substack-video.s3.amazonaws.com/video_upload/post/111810717/0db58cc2-15ea-4fbb-a40c-30eaa8700bfb/transcoded-00060.png)](https://www.architecture-weekly.com/p/webinar-8-slim-down-your-aggregates)
+
 ## Additional Materials
 
 ### Slimming Down
+- [How to effectively compose your business logic](https://event-driven.io/en/how_to_effectively_compose_your_business_logic)
 - [Slim your aggregates with Event Sourcing!](https://event-driven.io/en/slim_your_entities_with_event_sourcing/)
 - [How events can help in making the state-based approach efficient](https://event-driven.io/en/how_events_can_help_on_making_state_based_approach_efficient)
 - [Oskar Dudycz - My journey from Aggregates to Functional Composition](https://event-driven.io/pl/my_journey_from_aggregates/)
